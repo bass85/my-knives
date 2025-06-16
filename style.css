@@ -115,6 +115,11 @@ p {
   cursor: default;
   position: relative;
   z-index: 1;
+  touch-action: pan-x; /* Дозволяє горизонтальні свайпи */
+  user-select: none; /* Запобігає виділенню тексту при свайпах */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .modal.show .modal-content {
@@ -227,4 +232,29 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Покращення кнопок на мобільних */
+@media (max-width: 768px) {
+  .prev-btn, .next-btn {
+    padding: 20px 25px;
+    font-size: 28px;
+    border-radius: 50%;
+  }
+  
+  .modal-nav {
+    padding: 0 10px;
+  }
+  
+  .image-counter {
+    bottom: 30px;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .close {
+    top: 20px;
+    right: 20px;
+    font-size: 50px;
+  }
 }
