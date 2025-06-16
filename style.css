@@ -33,6 +33,23 @@ p {
   text-align: center;
 }
 
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.photo-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
 .gallery-image {
   width: 100%;
   max-width: 100%;
@@ -68,7 +85,7 @@ p {
   overflow: auto;
   background-color: rgba(0,0,0,0);
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, background-color 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .modal.show {
@@ -77,10 +94,18 @@ p {
   opacity: 1;
 }
 
-.modal-content {
+.modal-content-wrapper {
+  position: relative;
   margin: auto;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 90%;
+  max-height: 80vh;
+}
+
+.modal-content {
+  max-width: 100%;
   max-height: 80vh;
   transform: scale(0.7);
   opacity: 0;
@@ -90,6 +115,57 @@ p {
 
 .modal.show .modal-content {
   transform: scale(1);
+  opacity: 1;
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.prev-btn, .next-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  pointer-events: auto;
+  transition: background 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal.show .prev-btn,
+.modal.show .next-btn {
+  opacity: 1;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal.show .image-counter {
   opacity: 1;
 }
 
