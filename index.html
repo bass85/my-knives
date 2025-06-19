@@ -267,7 +267,34 @@
   <a href="https://www.youtube.com/@ДмитроВолковський" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
 </p>
   </p>
+  <!-- Простий лічильник відвідувань -->
+  <div style="text-align: center; margin-top: 20px; padding: 10px; border-top: 1px solid #ddd;">
+    <p style="font-size: 0.9em; color: #666;">
+      👁️ Переглядів сайту: <span id="visitor-count" style="font-weight: bold; color: #333;">завантаження...</span>
+    </p>
+  </div>
 </footer>
+
+  <!-- Скрипт лічильника -->
+  <script>
+    async function loadVisitCounter() {
+      try {
+        // Використовуємо CountAPI для реального лічильника
+        const response = await fetch('https://api.countapi.xyz/hit/bass85.github.io.my-knives/visits');
+        const data = await response.json();
+        document.getElementById('visitor-count').textContent = data.value;
+      } catch (error) {
+        // Fallback до localStorage якщо API недоступне
+        let visits = localStorage.getItem('local-visits') || 0;
+        visits++;
+        localStorage.setItem('local-visits', visits);
+        document.getElementById('visitor-count').textContent = visits + ' (локально)';
+      }
+    }
+    
+    // Завантажуємо лічильник при завантаженні сторінки
+    loadVisitCounter();
+  </script>
   <script>
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modal-img");
@@ -426,5 +453,13 @@
     }
   </script>
 
+  <!-- Google Analytics (замініть YOUR_GA_ID на ваш реальний ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_GA_ID');
+  </script>
 </body>
 </html>
