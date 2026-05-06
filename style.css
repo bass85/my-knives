@@ -261,7 +261,9 @@ footer h2 {
 }
 
 footer p {
-  margin: 10px 0;
+  margin: 10px auto;
+  max-width: 800px;
+  text-align: center;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
   font-size: 0.95em;
@@ -276,7 +278,8 @@ footer a {
 
 footer a:hover {
   color: #fff;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);\n  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+   text-decoration: underline;
 }
 
 /* Покращення кнопок на мобільних */
@@ -302,4 +305,54 @@ footer a:hover {
     right: 20px;
     font-size: 50px;
   }
+}
+
+/* Іконки в footer більші і кольорові */
+footer a i {
+  font-size: 1.1em;
+  margin-right: 4px;
+}
+
+footer a[href*="t.me"] i         { color: #2AABEE; }
+footer a[href*="instagram"] i    { color: #E1306C; }
+footer a[href*="youtube"] i      { color: #FF0000; }
+footer a[href*="mailto"] i       { color: #ffd700; }
+
+/* Плавна поява галереї */
+.knife-item {
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Підпис під фото трохи кращий */
+.knife-item figcaption {
+  margin-top: 8px;
+  font-size: 0.88em;
+  color: #ddd;
+  line-height: 1.4;
+  min-height: 2.8em; /* щоб картки були однакової висоти */
+}
+
+/* YouTube посилання під карткою */
+.knife-item a {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85em;
+  color: #FF0000;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.knife-item a:hover { opacity: 0.75; }
+
+/* Мобільний відступ галереї */
+@media (max-width: 600px) {
+  .gallery {
+    padding: 10px 15px;
+    gap: 20px;
+  }
+  h1 { font-size: 2em; }
 }
