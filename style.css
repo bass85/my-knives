@@ -356,3 +356,51 @@ footer a[href*="mailto"] i       { color: #ffd700; }
   }
   h1 { font-size: 2em; }
 }
+.logo-corner {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 60px;
+  opacity: 0.85;
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+.logo-corner:hover { opacity: 1; }
+.header-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 40px 0;
+}
+
+.header-logo {
+  width: 90px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+  margin-top: 50px;
+}
+
+/* Прибираємо padding-top з h1 бо він тепер у flex */
+.header-wrap h1 {
+  padding-top: 0;
+  text-align: left;
+}
+
+.header-wrap p {
+  text-align: left;
+  margin: 8px 0 0;
+}
+
+/* На мобільному — логотип зверху по центру */
+@media (max-width: 600px) {
+  .header-wrap {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 0;
+  }
+  .header-wrap h1,
+  .header-wrap p {
+    text-align: center;
+  }
+}
